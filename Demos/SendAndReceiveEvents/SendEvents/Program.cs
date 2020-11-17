@@ -1,10 +1,10 @@
 ﻿using Azure.Messaging.EventHubs;
-using Azure.Messaging.EventHubs.Consumer;
-using Azure.Messaging.EventHubs.Processor;
-using Azure.Storage.Blobs;
+using Azure.Messaging.EventHubs.Producer;
 using System;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
+using SendAndReceiveEvents;
 
 namespace SendEvents
 {
@@ -13,45 +13,26 @@ namespace SendEvents
 
 		static async Task Main()
 		{
-			// Read from the default consumer group: $Default
-			string consumerGroup = EventHubConsumerClient.DefaultConsumerGroupName;
 
-			// Create a blob container client that the event processor will use 
-			BlobContainerClient storageClient = new BlobContainerClient(Settings.blobStorageConnectionString, Settings.blobContainerName);
+			// Create a producer client that you can use to send events to an event hub
+			await using (var producerClient = new EventHubProducerClient(Settings.EventHubConnectionString, Settings.EventHubName))
+			{
+				// Create a batch of events
+				using EventDataBatch eventDataBatch = await producerClient.CreateBatchAsync();
 
-			// Create an event processor client to process events in the event hub
-			EventProcessorClient processor = new EventProcessorClient(storageClient, consumerGroup, Settings.ehubNamespaceConnectionString, Settings.eventHubName);
+				// Add event to the batch. An event is represented by a collection of bytes and metadata.
+				//eventDataBatch.TryAdd(new EventData(Encoding.UTF8.GetBytes("First event")));
+				//eventDataBatch.TryAdd(new EventData(Encoding.UTF8.GetBytes("Second event")));
+				//eventDataBatch.TryAdd(new EventData(Encoding.UTF8.GetBytes("Third event")));
 
-			// Register handlers for processing events and handling errors
-			processor.ProcessEventAsync += ProcessEventHandler;
-			processor.ProcessErrorAsync += ProcessErrorHandler;
+				var order = new Order("TaleLearnCode", "Louisville", "KY");
 
-			// Start the processing
-			await processor.StartProcessingAsync();
+				eventDataBatch.TryAdd(new EventData(Encoding.UTF8.GetBytes(JsonSerializer.Serialize(order))));
 
-			// Wait for 10 seconds for the events to be processed
-			await Task.Delay(TimeSpan.FromSeconds(10));
+				await producerClient.SendAsync(eventDataBatch);
+				Console.WriteLine("A batch of 3 events has been published.");
 
-			// Stop the processing
-			await processor.StopProcessingAsync();
+			}
 		}
-
-		static async Task ProcessEventHandler(ProcessEventArgs eventArgs)
-		{
-			// Write the body of the event to the console window
-			Console.WriteLine("\tReceived event: {0}", Encoding.UTF8.GetString(eventArgs.Data.Body.ToArray()));
-
-			// Update checkpoint in the blob storage so that the app receives only new events the next time it's run
-			await eventArgs.UpdateCheckpointAsync(eventArgs.CancellationToken);
-		}
-
-		static Task ProcessErrorHandler(ProcessErrorEventArgs eventArgs)
-		{
-			// Write details about the error to the console window
-			Console.WriteLine($"\tPartition '{ eventArgs.PartitionId}': an unhandled exception was encountered. This was not expected to happen.");
-			Console.WriteLine(eventArgs.Exception.Message);
-			return Task.CompletedTask;
-		}
-
 	}
 }
