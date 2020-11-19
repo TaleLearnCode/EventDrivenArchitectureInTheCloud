@@ -5,7 +5,6 @@ using Azure.Storage.Blobs;
 using System;
 using System.Text;
 using System.Threading.Tasks;
-using SendAndReceiveEvents;
 
 namespace SendEvents
 {
@@ -40,10 +39,6 @@ namespace SendEvents
 		static async Task ProcessEventHandler(ProcessEventArgs eventArgs)
 		{
 			// Write the body of the event to the console window
-			Console.WriteLine("\tReceived event: {0}", Encoding.UTF8.GetString(eventArgs.Data.Body.ToArray()));
-			Console.WriteLine("\tReceived event: {0}", Encoding.UTF8.GetString(eventArgs.Data.Body.ToArray()));
-			Console.WriteLine("\tReceived event: {0}", Encoding.UTF8.GetString(eventArgs.Data.Body.ToArray()));
-			Console.WriteLine("\tReceived event: {0}", Encoding.UTF8.GetString(eventArgs.Data.Body.ToArray()));
 			Console.WriteLine("\tReceived event: {0}", Encoding.UTF8.GetString(eventArgs.Data.Body.ToArray()));
 
 			// Update checkpoint in the blob storage so that the app receives only new events the next time it's run
