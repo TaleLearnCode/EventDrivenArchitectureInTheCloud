@@ -1,11 +1,13 @@
 using Microsoft.Azure.EventHubs;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TaleLearnCode.EventDrivenArchitectureInTheCloud;
 
 namespace NotificationManager
 {
@@ -21,9 +23,10 @@ namespace NotificationManager
 				try
 				{
 					string messageBody = Encoding.UTF8.GetString(eventData.Body.Array, eventData.Body.Offset, eventData.Body.Count);
+					Order order = JsonConvert.DeserializeObject<Order>(messageBody);
 
 					// Replace these two lines with your processing logic.
-					log.LogInformation($"C# Event Hub trigger function processed a message: {messageBody}");
+					log.LogInformation($"Sending email to {order.Customer.EmailAddress} confirming their order");
 					await Task.Yield();
 				}
 				catch (Exception e)

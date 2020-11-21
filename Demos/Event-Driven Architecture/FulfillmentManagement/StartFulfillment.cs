@@ -1,11 +1,13 @@
+using Microsoft.Azure.EventHubs;
+using Microsoft.Azure.WebJobs;
+using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Microsoft.Azure.EventHubs;
-using Microsoft.Azure.WebJobs;
-using Microsoft.Extensions.Logging;
+using TaleLearnCode.EventDrivenArchitectureInTheCloud;
 
 namespace FulfillmentManagement
 {
@@ -25,10 +27,13 @@ namespace FulfillmentManagement
 			{
 				try
 				{
-					string messageBody = Encoding.UTF8.GetString(eventData.Body.Array, eventData.Body.Offset, eventData.Body.Count);
 
-					// Replace these two lines with your processing logic.
-					log.LogInformation($"C# Event Hub trigger function processed a message: {messageBody}");
+					// Retrieve the order from the event message
+					string messageBody = Encoding.UTF8.GetString(eventData.Body.Array, eventData.Body.Offset, eventData.Body.Count);
+					Order order = JsonConvert.DeserializeObject<Order>(messageBody);
+
+					// Here we would start the fulfillment process
+					log.LogInformation($"Shipping order to : {order.ShippingAddress.StreetAddress}, {order.ShippingAddress.City}, {order.ShippingAddress.State} {order.ShippingAddress.PostalCode}");
 					await Task.Yield();
 				}
 				catch (Exception e)

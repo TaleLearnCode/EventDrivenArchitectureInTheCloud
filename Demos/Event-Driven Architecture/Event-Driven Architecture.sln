@@ -3,13 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30709.64
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderSimulator", "OrderSimulator\OrderSimulator.csproj", "{A1D4F0BE-F8EB-48B7-8F0E-0179645A4381}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrderSimulator", "OrderSimulator\OrderSimulator.csproj", "{A1D4F0BE-F8EB-48B7-8F0E-0179645A4381}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FulfillmentManagement", "FulfillmentManagement\FulfillmentManagement.csproj", "{5BE75848-DFDE-489F-A543-0E6E19CFFC5B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FulfillmentManagement", "FulfillmentManagement\FulfillmentManagement.csproj", "{5BE75848-DFDE-489F-A543-0E6E19CFFC5B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InventoryManagement", "InventoryManagement\InventoryManagement.csproj", "{043F2E75-1B12-4A63-BE94-1CFF3B531A25}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InventoryManagement", "InventoryManagement\InventoryManagement.csproj", "{043F2E75-1B12-4A63-BE94-1CFF3B531A25}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NotificationManager", "NotificationManager\NotificationManager.csproj", "{5ED6DF36-D55A-4EAE-9CFF-EE46C8915DCD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NotificationManager", "NotificationManager\NotificationManager.csproj", "{5ED6DF36-D55A-4EAE-9CFF-EE46C8915DCD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{463E7328-E0E7-4ECC-A581-527518165539}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderProcessing", "OrderProcessing\OrderProcessing.csproj", "{4ED4D679-774A-4451-B663-A16C94881BC9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +37,14 @@ Global
 		{5ED6DF36-D55A-4EAE-9CFF-EE46C8915DCD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5ED6DF36-D55A-4EAE-9CFF-EE46C8915DCD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5ED6DF36-D55A-4EAE-9CFF-EE46C8915DCD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{463E7328-E0E7-4ECC-A581-527518165539}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{463E7328-E0E7-4ECC-A581-527518165539}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{463E7328-E0E7-4ECC-A581-527518165539}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{463E7328-E0E7-4ECC-A581-527518165539}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4ED4D679-774A-4451-B663-A16C94881BC9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4ED4D679-774A-4451-B663-A16C94881BC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4ED4D679-774A-4451-B663-A16C94881BC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4ED4D679-774A-4451-B663-A16C94881BC9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
