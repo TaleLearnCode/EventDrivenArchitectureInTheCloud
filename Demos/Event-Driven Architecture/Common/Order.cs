@@ -12,7 +12,7 @@
 
 		public string OrderItem { get; set; }
 
-		public decimal OrderTotal { get; set; }
+		public string OrderTotal { get; set; }
 
 	}
 

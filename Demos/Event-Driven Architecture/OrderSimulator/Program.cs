@@ -1,45 +1,63 @@
-﻿using Azure.Messaging.EventHubs;
-using Azure.Messaging.EventHubs.Producer;
-using System;
-using System.Text;
+﻿using System;
+using System.Net.Http;
+using System.Text.Json;
 using System.Threading.Tasks;
+using TaleLearnCode.EventDrivenArchitectureInTheCloud;
 
 namespace OrderSimulator
 {
 	class Program
 	{
+
+		static readonly HttpClient httpClient = new HttpClient();
+
+
 		static async Task Main()
 		{
 
-			Console.WriteLine("Press any key to start sending events");
+			WelcomeUser();
+
+			Console.WriteLine("Press any key to start simulating orders...");
+
 			Console.ReadKey();
 
-			// Create a producer client that you can use to send events to an event hub
-			await using (var producerClient = new EventHubProducerClient(Settings.EventHubConnectionString, Settings.EventHubName))
+			int orderCounter = 0;
+			Console.WriteLine();
+			do
 			{
-				// Create a batch of events
-				using EventDataBatch eventDataBatch = await producerClient.CreateBatchAsync();
+				while (!Console.KeyAvailable)
+				{
+					var order = BogusRepository.GetOrder();
+					StringContent body = new StringContent(JsonSerializer.Serialize(order));
+					await httpClient.PostAsync("http://localhost:5860/api/CreateOrder", body);
+					Console.WriteLine($"Sent order '{order.Id}' to the order processor");
+					orderCounter++;
+					await Task.Delay(500);
+				}
+			} while (Console.ReadKey(true).Key != ConsoleKey.Escape);
 
-				// Add event to the batch. An event is represented by a collection of bytes and metadata.
-				eventDataBatch.TryAdd(new EventData(Encoding.UTF8.GetBytes(Guid.NewGuid().ToString())));
-				eventDataBatch.TryAdd(new EventData(Encoding.UTF8.GetBytes(Guid.NewGuid().ToString())));
-				eventDataBatch.TryAdd(new EventData(Encoding.UTF8.GetBytes(Guid.NewGuid().ToString())));
-
-
-				//if (eventDataBatch.TryAdd(new EventData(Encoding.UTF8.GetBytes(JsonSerializer.Serialize(order)))))
-				//	Console.WriteLine($"Added event for Order Id {order.Id}");
-
-				await producerClient.SendAsync(eventDataBatch);
-
-				Console.WriteLine($"Added {eventDataBatch.Count} event to the collective");
-
-				//Console.WriteLine("A batch of 3 events has been published.");
-
-			}
-
-			Console.WriteLine("All done");
+			Console.Clear();
+			Console.WriteLine($"Simulated {orderCounter} orders");
 			Console.ReadLine();
 
 		}
+
+		private static void WelcomeUser()
+		{
+			Console.Clear();
+			Console.WriteLine();
+			Console.ForegroundColor = ConsoleColor.Green;
+			Console.WriteLine(@"________            .___               _________.__              .__          __                ");
+			Console.WriteLine(@"\_____  \_______  __| _/___________   /   _____/|__| _____  __ __|  | _____ _/  |_  ___________ ");
+			Console.WriteLine(@" /   |   \_  __ \/ __ |/ __ \_  __ \  \_____  \ |  |/     \|  |  \  | \__  \\   __\/  _ \_  __ \");
+			Console.WriteLine(@"/    |    \  | \/ /_/ \  ___/|  | \/  /        \|  |  Y Y  \  |  /  |__/ __ \|  | (  <_> )  | \/");
+			Console.WriteLine(@"\_______  /__|  \____ |\___  >__|    /_______  /|__|__|_|  /____/|____(____  /__|  \____/|__|   ");
+			Console.WriteLine(@"        \/           \/    \/                \/          \/                \/                   ");
+			Console.ForegroundColor = ConsoleColor.White;
+			Console.WriteLine();
+		}
+
+
 	}
+
 }

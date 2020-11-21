@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using TaleLearnCode.EventDrivenArchitectureInTheCloud;
 
@@ -33,7 +34,8 @@ namespace FulfillmentManagement
 					Order order = JsonConvert.DeserializeObject<Order>(messageBody);
 
 					// Here we would start the fulfillment process
-					log.LogInformation($"Shipping order to : {order.ShippingAddress.StreetAddress}, {order.ShippingAddress.City}, {order.ShippingAddress.State} {order.ShippingAddress.PostalCode}");
+					log.LogWarning($"Shipping order to : {order.ShippingAddress.StreetAddress}, {order.ShippingAddress.City}, {order.ShippingAddress.State} {order.ShippingAddress.PostalCode}");
+					Thread.Sleep(2500);
 					await Task.Yield();
 				}
 				catch (Exception e)

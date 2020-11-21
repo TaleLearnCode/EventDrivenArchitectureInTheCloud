@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using TaleLearnCode.EventDrivenArchitectureInTheCloud;
 
@@ -26,7 +27,8 @@ namespace NotificationManager
 					Order order = JsonConvert.DeserializeObject<Order>(messageBody);
 
 					// Replace these two lines with your processing logic.
-					log.LogInformation($"Sending email to {order.Customer.EmailAddress} confirming their order");
+					log.LogWarning($"Sending email to {order.Customer.EmailAddress} confirming their order");
+					Thread.Sleep(7500);
 					await Task.Yield();
 				}
 				catch (Exception e)

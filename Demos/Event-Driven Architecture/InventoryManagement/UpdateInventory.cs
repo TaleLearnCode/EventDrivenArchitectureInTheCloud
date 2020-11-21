@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using TaleLearnCode.EventDrivenArchitectureInTheCloud;
 
@@ -26,7 +27,8 @@ namespace InventoryManagement
 					Order order = JsonConvert.DeserializeObject<Order>(messageBody);
 
 					// Here we would do what we need to manage inventory
-					log.LogInformation($"Taking a '{order.OrderItem}' out of availablle inventory");
+					log.LogWarning($"Taking a '{order.OrderItem}' out of availablle inventory");
+					Thread.Sleep(5000);
 					await Task.Yield();
 				}
 				catch (Exception e)
