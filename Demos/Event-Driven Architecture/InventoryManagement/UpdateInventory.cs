@@ -28,7 +28,6 @@ namespace InventoryManagement
 
 					// Here we would do what we need to manage inventory
 					log.LogWarning($"Taking a '{order.OrderItem}' out of availablle inventory");
-					Thread.Sleep(5000);
 					await Task.Yield();
 				}
 				catch (Exception e)

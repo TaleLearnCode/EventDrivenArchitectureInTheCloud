@@ -28,7 +28,6 @@ namespace NotificationManager
 
 					// Replace these two lines with your processing logic.
 					log.LogWarning($"Sending email to {order.Customer.EmailAddress} confirming their order");
-					Thread.Sleep(7500);
 					await Task.Yield();
 				}
 				catch (Exception e)
