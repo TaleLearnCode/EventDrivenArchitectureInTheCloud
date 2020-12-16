@@ -34,7 +34,7 @@ Over the last couple of years, microservices has been the answer to how to solve
 ## Presentations
 | Event | Location | Date | Time | Room | Downloads |
 |-----------|:-----------:|-----------:|-----------:|-----------:|-----------:|
-| Dallas & Austin Azure Meetup | Online (Dallas & Austin, TX) | December 15, 2020 | 6:00 pm CST | N/A | Available After Event |
+| Dallas & Austin Azure Meetup | Online (Dallas & Austin, TX) | December 15, 2020 | 6:00 pm CST | N/A | [Slides](https://chadgreen.blob.core.windows.net/slides/Event-Driven%20Architecture%20in%20the%20Cloud%20-%20Dallas%20&%20Austin%20Azure%20Meetup.pdf) |
 | Boston Code Camp 33 [Cancelled] | Boston, MA | March 21, 2020 | N/A | N/A | N/A |
 | TechBash 2019 | Pocono Manor, PA | November 13, 2019 | 4:00 pm EST | Sagewood | [Slides](https://chadgreen.blob.core.windows.net/slides/Event-Driven%20Architecture%20in%20the%20Cloud%20-%20TechBash.pdf) |
 | Louisville .NET Meetup - October 2019 | Louisville, KY | October 17, 2019 | 7:00 pm EDT | N/A | [Slides](https://chadgreen.blob.core.windows.net/slides/Event-Driven%20Architecture%20in%20the%20Cloud%20-%20Louisville%20.NET.pdf) |
