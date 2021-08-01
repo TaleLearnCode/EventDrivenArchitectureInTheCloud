@@ -34,9 +34,10 @@ Over the last couple of years, microservices has been the answer to how to solve
 ## Presentations
 | Event | Location | Date | Time | Room | Downloads |
 |-----------|:-----------:|-----------:|-----------:|-----------:|-----------:|
-| Dallas & Austin Azure Meetup | Online (Dallas & Austin, TX) | December 15, 2020 | 6:00 pm CST | N/A | [Slides](https://chadgreen.blob.core.windows.net/slides/Event-Driven%20Architecture%20in%20the%20Cloud%20-%20Dallas%20&%20Austin%20Azure%20Meetup.pdf) |
-| Boston Code Camp 33 [Cancelled] | Boston, MA | March 21, 2020 | N/A | N/A | N/A |
-| TechBash 2019 | Pocono Manor, PA | November 13, 2019 | 4:00 pm EST | Sagewood | [Slides](https://chadgreen.blob.core.windows.net/slides/Event-Driven%20Architecture%20in%20the%20Cloud%20-%20TechBash.pdf) |
-| Louisville .NET Meetup - October 2019 | Louisville, KY | October 17, 2019 | 7:00 pm EDT | N/A | [Slides](https://chadgreen.blob.core.windows.net/slides/Event-Driven%20Architecture%20in%20the%20Cloud%20-%20Louisville%20.NET.pdf) |
-| DevUp 2019 | St. Charles, MO | October 16, 2019 | 8:00 am CDT | Discovery B | [Slides](https://chadgreen.blob.core.windows.net/slides/Event-Driven%20Architecture%20in%20the%20Cloud%20-%20DevUp.pdf) |
-| Little Rock Tech Fest 2019 | Little Rock, AR | October 16, 2019 | 11:00 am CDT | Ballroom B | [Slides](https://chadgreen.blob.core.windows.net/slides/Event-Driven%20Architecture%20in%20the%20Cloud%20-%20Little%20Rock%20Tech%20Fest.pdf) |
+| [CincyDeliver](https://www.cincydeliver.org/Sessions/Details/4237) | Cincinatti, OH | 16:00 | Marquis - Ascendum | Available Afterwards |
+| [Dallas & Austin Azure Meetup](https://www.meetup.com/azureaustin/events/273440904/) | Online (Dallas & Austin, TX) | December 15, 2020 | 6:00 pm CST | N/A | [Slides](https://chadgreen.blob.core.windows.net/slides/Event-Driven%20Architecture%20in%20the%20Cloud%20-%20Dallas%20&%20Austin%20Azure%20Meetup.pdf) |
+| [Boston Code Camp 33](https://www.bostoncodecamp.com/sessions#panel-body-16874) [Cancelled] | Boston, MA | March 21, 2020 | N/A | N/A | N/A |
+| [TechBash 2019](https://techbash.com/sessions) | Pocono Manor, PA | November 13, 2019 | 4:00 pm EST | Sagewood | [Slides](https://chadgreen.blob.core.windows.net/slides/Event-Driven%20Architecture%20in%20the%20Cloud%20-%20TechBash.pdf) |
+| [Louisville .NET Meetup - October 2019](https://www.meetup.com/Louisville-DotNet/events/264034194/) | Louisville, KY | October 17, 2019 | 7:00 pm EDT | N/A | [Slides](https://chadgreen.blob.core.windows.net/slides/Event-Driven%20Architecture%20in%20the%20Cloud%20-%20Louisville%20.NET.pdf) |
+| [DevUp 2019](https://www.devupconf.org/sessions) | St. Charles, MO | October 16, 2019 | 8:00 am CDT | Discovery B | [Slides](https://chadgreen.blob.core.windows.net/slides/Event-Driven%20Architecture%20in%20the%20Cloud%20-%20DevUp.pdf) |
+| [Little Rock Tech Fest 2019](http://www.lrtechfest.com/sessions/123738) | Little Rock, AR | October 16, 2019 | 11:00 am CDT | Ballroom B | [Slides](https://chadgreen.blob.core.windows.net/slides/Event-Driven%20Architecture%20in%20the%20Cloud%20-%20Little%20Rock%20Tech%20Fest.pdf) |
