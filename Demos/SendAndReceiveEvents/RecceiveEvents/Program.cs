@@ -2,6 +2,7 @@
 using Azure.Messaging.EventHubs.Consumer;
 using Azure.Messaging.EventHubs.Processor;
 using Azure.Storage.Blobs;
+using ReceiveEvents;
 using System;
 using System.Text;
 using System.Threading.Tasks;

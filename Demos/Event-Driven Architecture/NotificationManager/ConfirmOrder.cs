@@ -15,7 +15,8 @@ namespace NotificationManager
 	public static class ConfirmOrder
 	{
 		[FunctionName("ConfirmOrder")]
-		public static async Task Run([EventHubTrigger("OrderProcessing", Connection = "EventHubConnectionString", ConsumerGroup = "notification")] EventData[] events, ILogger log)
+		public static async Task Run(
+			[EventHubTrigger("OrderProcessing", Connection = "EventHubConnectionString", ConsumerGroup = "notification")] EventData[] events, ILogger log)
 		{
 			var exceptions = new List<Exception>();
 
