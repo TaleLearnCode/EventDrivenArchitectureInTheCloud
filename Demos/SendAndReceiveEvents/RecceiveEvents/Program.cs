@@ -14,6 +14,9 @@ namespace SendEvents
 
 		static async Task Main()
 		{
+
+			PrintHeader();
+
 			// Read from the default consumer group: $Default
 			string consumerGroup = EventHubConsumerClient.DefaultConsumerGroupName;
 
@@ -52,6 +55,19 @@ namespace SendEvents
 			Console.WriteLine($"\tPartition '{ eventArgs.PartitionId}': an unhandled exception was encountered. This was not expected to happen.");
 			Console.WriteLine(eventArgs.Exception.Message);
 			return Task.CompletedTask;
+		}
+
+		static void PrintHeader()
+		{
+			Console.ForegroundColor = ConsoleColor.Green;
+			Console.WriteLine(@"__________                    .__               ___________                    __          ");
+			Console.WriteLine(@"\______   \ ____   ____  ____ |__|__  __ ____   \_   _____/__  __ ____   _____/  |_  ______");
+			Console.WriteLine(@" |       _// __ \_/ ___\/ __ \|  \  \/ // __ \   |    __)_\  \/ // __ \ /    \   __\/  ___/");
+			Console.WriteLine(@" |    |   \  ___/\  \__\  ___/|  |\   /\  ___/   |        \\   /\  ___/|   |  \  |  \___ \ ");
+			Console.WriteLine(@" |____|_  /\___  >\___  >___  >__| \_/  \___  > /_______  / \_/  \___  >___|  /__| /____  >");
+			Console.WriteLine(@"        \/     \/     \/    \/              \/          \/           \/     \/          \/ ");
+			Console.ResetColor();
+			Console.WriteLine();
 		}
 
 	}
