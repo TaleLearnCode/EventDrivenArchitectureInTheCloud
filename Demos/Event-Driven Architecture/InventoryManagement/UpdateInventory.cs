@@ -15,7 +15,7 @@ namespace InventoryManagement
 	public static class UpdateInventory
 	{
 		[FunctionName("UpdateInventory")]
-		public static async Task Run([EventHubTrigger("OrderProcessing", Connection = "EventHubConnectionString", ConsumerGroup = "inventory")] EventData[] events, ILogger log)
+		public static async Task Run([EventHubTrigger("orderprocessing", Connection = "EventHubConnectionString", ConsumerGroup = "inventory")] EventData[] events, ILogger log)
 		{
 			var exceptions = new List<Exception>();
 

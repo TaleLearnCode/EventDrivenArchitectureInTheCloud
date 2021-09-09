@@ -14,6 +14,7 @@ namespace SendEvents
 		static async Task Main()
 		{
 
+			PrintHeader();
 			Console.WriteLine("Press any key to start sending events");
 			Console.ReadKey();
 
@@ -24,17 +25,11 @@ namespace SendEvents
 				using EventDataBatch eventDataBatch = await producerClient.CreateBatchAsync();
 
 				// Add event to the batch. An event is represented by a collection of bytes and metadata.
-				//eventDataBatch.TryAdd(new EventData(Encoding.UTF8.GetBytes("First event")));
-				//eventDataBatch.TryAdd(new EventData(Encoding.UTF8.GetBytes("Second event")));
-				//eventDataBatch.TryAdd(new EventData(Encoding.UTF8.GetBytes("Third event")));
-
 				var order = new Order("TaleLearnCode", "Louisville", "KY");
-
 				if (eventDataBatch.TryAdd(new EventData(Encoding.UTF8.GetBytes(JsonSerializer.Serialize(order)))))
 					Console.WriteLine($"Added event for Order Id {order.Id}");
 
 				await producerClient.SendAsync(eventDataBatch);
-				//Console.WriteLine("A batch of 3 events has been published.");
 
 			}
 
@@ -42,5 +37,20 @@ namespace SendEvents
 			Console.ReadLine();
 
 		}
+
+		static void PrintHeader()
+		{
+			Console.ForegroundColor = ConsoleColor.Blue;
+			Console.WriteLine(@"  _________                  .___ ___________                    __          ");
+			Console.WriteLine(@" /   _____/ ____   ____    __| _/ \_   _____/__  __ ____   _____/  |_  ______");
+			Console.WriteLine(@" \_____  \_/ __ \ /    \  / __ |   |    __)_\  \/ // __ \ /    \   __\/  ___/");
+			Console.WriteLine(@" /        \  ___/|   |  \/ /_/ |   |        \\   /\  ___/|   |  \  |  \___ \ ");
+			Console.WriteLine(@"/_______  /\___  >___|  /\____ |  /_______  / \_/  \___  >___|  /__| /____  >");
+			Console.WriteLine(@"        \/     \/     \/      \/          \/           \/     \/          \/ ");
+			Console.ResetColor();
+			Console.WriteLine();
+		}
+
 	}
+
 }
