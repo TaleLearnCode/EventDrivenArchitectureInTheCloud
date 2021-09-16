@@ -34,10 +34,10 @@ Over the last couple of years, microservices has been the answer to how to solve
 ## Presentations
 | Event | Location | Date | Time | Room | Downloads |
 |-----------|:-----------:|-----------:|-----------:|-----------:|-----------:|
-| [Prairie.Code()](https://prairiecode.amegala.com/) [Cancelled] | Des Moines, IA | September 24, 2021 | | | N/A |
+| [Prairie.Code()](https://prairiecode.amegala.com/) [Canceled] | Des Moines, IA | September 24, 2021 | | | N/A |
 | [Music City Tech](https://whova.com/embedded/speaker_session_detail/music_202109/1890992/) | Nashville, TN [Online] | September 16, 2021 | 11:00 am CDT | N/A | [Slides](https://chadgreen.blob.core.windows.net/slides/EventDrivenArchictureInTheCloud-MusicCityCode.pdf) |
 | [DevSpace](https://www.devspaceconf.com/sessions.html) | Huntsville, AL [Online] | September 9, 2021 | 8:45 am CDT | N/A | [Slides](https://chadgreen.blob.core.windows.net/slides/EventDrivenArchictureInTheCloud-DevSpace.pdf) |
-| [CincyDeliver](https://www.cincydeliver.org/Sessions/Details/4237) | Cincinatti, OH | July 30, 2021 | 16:00 | Marquis - Ascendum | [Slides](https://chadgreen.blob.core.windows.net/slides/EventDrivenArchictureInTheCloud-CincyDeliver.pdf) |
+| [CincyDeliver](https://www.cincydeliver.org/Sessions/Details/4237) | Cincinnati, OH | July 30, 2021 | 16:00 | Marquis - Ascendum | [Slides](https://chadgreen.blob.core.windows.net/slides/EventDrivenArchictureInTheCloud-CincyDeliver.pdf) |
 | [Dallas & Austin Azure Meetup](https://www.meetup.com/azureaustin/events/273440904/) | Online (Dallas & Austin, TX) | December 15, 2020 | 6:00 pm CST | N/A | [Slides](https://chadgreen.blob.core.windows.net/slides/Event-Driven%20Architecture%20in%20the%20Cloud%20-%20Dallas%20&%20Austin%20Azure%20Meetup.pdf) |
 | [Boston Code Camp 33](https://www.bostoncodecamp.com/sessions#panel-body-16874) [Cancelled] | Boston, MA | March 21, 2020 | N/A | N/A | N/A |
 | [TechBash 2019](https://techbash.com/sessions) | Pocono Manor, PA | November 13, 2019 | 4:00 pm EST | Sagewood | [Slides](https://chadgreen.blob.core.windows.net/slides/Event-Driven%20Architecture%20in%20the%20Cloud%20-%20TechBash.pdf) |

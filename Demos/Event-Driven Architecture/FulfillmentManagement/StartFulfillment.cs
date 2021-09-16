@@ -18,7 +18,9 @@ namespace FulfillmentManagement
 		static ILogger logger;
 
 		[FunctionName("StartFulfillment")]
-		public static async Task RunAsync([TimerTrigger("0 */2 * * * *")] TimerInfo myTimer, ILogger log)
+		public static async Task RunAsync(
+			[TimerTrigger("0 */2 * * * *")] TimerInfo myTimer,
+			ILogger log)
 		{
 
 			log.LogError("Fulfillment Processing starting");
@@ -30,10 +32,15 @@ namespace FulfillmentManagement
 			string consumerGroup = EventHubConsumerClient.DefaultConsumerGroupName;
 
 			// Create a blob container client that the event processor will use 
-			BlobContainerClient storageClient = new BlobContainerClient(Environment.GetEnvironmentVariable("BlobStorageConnectionString"), Environment.GetEnvironmentVariable("BlobContainerName"));
+			BlobContainerClient storageClient = new BlobContainerClient(
+				Environment.GetEnvironmentVariable("BlobStorageConnectionString"),
+				Environment.GetEnvironmentVariable("BlobContainerName"));
 
 			// Create an event processor client to process events in the event hub
-			EventProcessorClient processor = new EventProcessorClient(storageClient, consumerGroup, Environment.GetEnvironmentVariable("EventHubConnectionString"), Environment.GetEnvironmentVariable("EventHubName"));
+			EventProcessorClient processor = new EventProcessorClient(
+				storageClient, consumerGroup,
+				Environment.GetEnvironmentVariable("EventHubConnectionString"),
+				Environment.GetEnvironmentVariable("EventHubName"));
 
 			// Register handlers for processing events and handling errors
 			processor.ProcessEventAsync += ProcessEventHandler;
