@@ -16,7 +16,9 @@ namespace OrderProcessing
 		[FunctionName("CreateOrder")]
 		public static async Task<IActionResult> Run(
 				[HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequest request,
-				[EventHub("OrderProcessing", Connection = "EventHubConnectionString")] IAsyncCollector<string> outputEvents,
+				[EventHub(
+					"OrderProcessing",
+					Connection = "EventHubConnectionString")] IAsyncCollector<string> outputEvents,
 				ILogger log)
 		{
 
